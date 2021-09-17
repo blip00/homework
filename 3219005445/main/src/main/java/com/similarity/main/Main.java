@@ -1,4 +1,9 @@
+package com.similarity.main;
+
 import com.similarity.main.utils.FileUtil;
+import com.similarity.main.utils.HammingUtil;
+import com.similarity.main.utils.SimHashUtil;
+
 
 public class Main {
 
@@ -12,6 +17,12 @@ public class Main {
     public static void main(String[] args) {
         String origin = FileUtil.readFile(args[0]);
         String originAdd = FileUtil.readFile(args[1]);
+        if ((origin != null) && (originAdd != null)){
+            String simHash1 = SimHashUtil.simHash(origin);
+            String simHash2 = SimHashUtil.simHash(originAdd);
+            String  hamming = HammingUtil.hamming(simHash1, simHash2);
+            FileUtil.writeFile(args[2], hamming);
+        }
     }
 
 }
