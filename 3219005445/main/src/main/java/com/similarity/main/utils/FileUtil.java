@@ -11,18 +11,16 @@ public class FileUtil {
      */
     public static String readFile(String filePath){
         File file = new File(filePath);
-        if (file.isFile() && file.exists()){
-            try {
-                BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
-                StringBuffer sb = new StringBuffer();
-                String line;
-                while ((line = reader.readLine()) != null){
-                    sb.append(line);
-                }
-                return sb.toString();
-            } catch (Exception e) {
-                e.printStackTrace();
+        try {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(new FileInputStream(file), "UTF-8"));
+            StringBuffer sb = new StringBuffer();
+            String line;
+            while ((line = reader.readLine()) != null){
+                sb.append(line);
             }
+            return sb.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         return null;
     }
