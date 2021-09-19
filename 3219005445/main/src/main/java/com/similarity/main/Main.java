@@ -15,6 +15,10 @@ public class Main {
      *             args[2]: 答案文件路径
      */
     public static void main(String[] args) {
+        if (args.length != 3){
+            System.out.println("传入参数个数有误");
+            return;
+        }
         String origin = FileUtil.readFile(args[0]);
         String originAdd = FileUtil.readFile(args[1]);
         if ((origin != null) && (originAdd != null)){

@@ -27,6 +27,16 @@
 
     <build>
         <plugins>
+            <!-- 打包时跳过测试文件 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M1</version>
+                <configuration>
+                    <skipTests>true</skipTests>
+                </configuration>
+            </plugin>
+
             <!-- 将第三方jar包放到了target下指定的lib文件夹里 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
